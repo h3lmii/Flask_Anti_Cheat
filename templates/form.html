@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+ <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.1/dist/jquery.slim.min.js"></script>
+  <style type="text/css"> 
+    body {
+  background-color: #EAEDED;
+}
+  </style>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
+
+  <script type=text/javascript>
+localStorage.openpage = Date.now();
+
+var onLocalStorageEvent = function(e) {
+  if (e.key == "openpage") {
+    alert("One more page already open");
+  }
+};
+window.addEventListener('storage', onLocalStorageEvent);
+
+
+
+</script>
+
+  </head>
+
+  <body>
+
+
+    <h1 style="color:#D68910;font-size: 50px;text-align: center;margin-bottom: 15px;">Online Test</h1>
+    <div>
+
+        <img src="{{ url_for('video_feed') }}" width="50%"/>
+    </div>
+    <div id="load" style="margin-left: 55%;margin-top: -35%;background-color: #708090;border-radius: 5%;height: 100%;">
+      <h1 style="color:white; margin-left: 5%;">Checking For Requirements ⌛⌛</h1>
+      <br> <br>
+      
+                  {% for cond in conds[:-4] %}
+
+                <h1 style="color: white;padding-left: 5%">{{cond}} </h1>
+                  {% endfor %}
+                    <button style="margin:5%" type="button" class="btn btn-info btn-lg" onClick="{{url}}">{{read}}</button> 
+
+        
+                  </div>
+
+    </body>
+
+
+</html>
